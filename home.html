@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/ripples.min.css">
+
+    <!-- core CSS of SnackbarJS, find it in /dist -->
+    <link href="dist/css/snackbar.min.css" rel=stylesheet>
+    <!-- the default theme of SnackbarJS, find it in /themes-css -->
+    <link href="dist/css/material.css" rel=stylesheet>
+
+    <!-- Custom -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+<img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive">
+
+<div class="jumbotron" style="text-align: center">
+    <h1>Jerry FM</h1>
+</div>
+
+<blockquote style="text-align: center">
+    <p>Wherever you go, I will <span data-toggle=snackbar data-content="Always with Yoona!"
+                                     data-timeout="1000">follow.</span></p>
+    <small>A famous individual from <cite title="Source Title">The City of Skies</cite></small>
+</blockquote>
+
+<div class="container">
+    <div class=" row">
+        <div class="col-lg-3"></div>
+
+        <div class="col-lg-6">
+            <div class="card">
+
+                <div class="card-height-indicator"></div>
+
+                <div class="card-content">
+
+                    <h1 class="header-padding">Log
+                        <a href="#/" style="float: right" class="help-right-padding" data-toggle="tooltip"
+                           data-placement="left" title="Help"><i class="material-icons red">help_outline</i></a>
+                    </h1>
+
+                    <div class="btn-group header-padding">
+                        <button type="button" class="btn dropdown-toggle btn-raised btn-danger" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" id="option-button">It would be nice if &nbsp;<span
+                                class="caret"></span></button>
+                        <ul class="dropdown-menu" style="margin-left: 15px">
+                            <li id="option1"><a href="#/">It would be nice if</a></li>
+                            <li id="option2"><a href="#/">It would be horrible if</a></li>
+                        </ul>
+
+                    </div><!-- /btn-group -->
+
+                    <div class="form-group" style="padding-left: 30px; padding-right:15px">
+                        <textarea rows="1" class="form-control" placeholder="It would be nice if..."
+                                  id="text-area"></textarea>
+                        <div style="text-align: right">
+                            <button type="button" class="btn btn-default" style="display:none" id="cancel-button">
+                                Clear
+                            </button>
+                            <button type="submit" class="btn btn-primary" style="display:none" id="submit-button">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- card body start -->
+                    <div class="card-body flex-reverse" id="card-body">
+                        <!--
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Basic panel
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Panel heading</div>
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                            <div class="panel-footer">Panel footer</div>
+                        </div>
+
+
+                        <div class="well">
+                            Look, I'm in a well!
+                        </div>
+
+-->
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+
+
+</div>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+        integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--Material Design Animations etc -->
+<script src="dist/js/material.js"></script>
+
+<!-- SnackbarJS, find it in /dist -->
+<script src="dist/js/snackbar.min.js"></script>
+
+<!-- Custom -->
+<script src="app.js"></script>
+
+</body>
+
+</html>
