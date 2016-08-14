@@ -35,25 +35,30 @@ $(document).ready(function () {
             });
         }
     });
-
+    
+    
     $("#cancel-button").mousedown(function () {
         $("#text-area").val('');
         $("#text-area").autoHeight()
     });
 
+    $("#submit-button").mousedown(function () {
+        $("<div class='panel panel-default'> <div class='panel-heading'>Panel heading</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
+        $("<div class='panel panel-default'> <div class='panel-heading'>newer</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
+    });
+
     $("#text-area").on("focus", function (e) {
         $('#submit-button').show();
         $('#cancel-button').show();
+        $('#file-upload').prop("disabled", false);
+        $('#link-upload').prop("disabled", false);
     });
 
     $("#text-area").on("blur", function (e) {
         $('#submit-button').hide();
-        $('#cancel-button').hide();
+        $('#cancel-button').hide()
+        //$('#file-upload').prop("disabled",true);
     });
 
 
-    $("#submit-button").mousedown(function(){
-        $("<div class='panel panel-default'> <div class='panel-heading'>Panel heading</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
-        $("<div class='panel panel-default'> <div class='panel-heading'>newer</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
-    })
 });

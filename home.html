@@ -68,14 +68,29 @@
                     <div class="form-group" style="padding-left: 30px; padding-right:15px">
                         <textarea rows="1" class="form-control" placeholder="It would be nice if..."
                                   id="text-area"></textarea>
-                        <div style="text-align: right">
-                            <button type="button" class="btn btn-default" style="display:none" id="cancel-button">
-                                Clear
-                            </button>
-                            <button type="submit" class="btn btn-primary" style="display:none" id="submit-button">
-                                Submit
-                            </button>
-                        </div>
+
+                        <label for="file-upload" class="custom-file-upload" id="attach-icon" style="text-align:left">
+                            <i class="material-icons black">add_a_photo</i>
+                        </label>
+                        <input id="file-upload" type="file" disabled/>
+                        <label for="link-upload" id="attach-link" style="text-align: left">
+                            <i class="material-icons">link</i>
+                        </label>
+                        <input id="link-upload" type="button" disabled/>
+
+                        <!--TO DO
+                        //ADD MODAL DIALOG FOR LINK BUTTON TO GIF/YOUTUBE/ETC
+                        -->
+
+                        <button type="submit" class="btn btn-primary" style="display:none; float: right"
+                                id="submit-button">
+                            Submit
+                        </button>
+                        <button type="button" class="btn btn-default" style="display:none; float: right"
+                                id="cancel-button">
+                            Clear
+                        </button>
+
                     </div>
 
                     <!-- card body start -->
