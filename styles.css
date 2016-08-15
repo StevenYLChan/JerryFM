@@ -1,3 +1,10 @@
+html{
+    overflow: auto;
+}
+body{
+    position: relative;
+}
+
 .image-display {
     display: block;
     margin-left: auto;

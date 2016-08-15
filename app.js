@@ -43,8 +43,38 @@ $(document).ready(function () {
     });
 
     $("#submit-button").mousedown(function () {
-        $("<div class='panel panel-default'> <div class='panel-heading'>Panel heading</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
-        $("<div class='panel panel-default'> <div class='panel-heading'>newer</div> <div class='panel-body'> Panel content </div> </div>").appendTo("#card-body");
+        var input_text = $('#text-area').val();
+        var date = new Date(Date.now());
+        var result = new Array();
+        result[0] = $.datepicker.formatDate('DD M d yy', date);
+        result[1] = ' ';
+        if (date.getHours() > 12) {
+            result[2] = date.getHours() - 12;
+        } else if (date.getHours() == 0 ) {
+            result[2] = "12";
+        } else {
+            result[2] = date.getHours();
+        }
+        result[3] = ":";
+        result[4] = (date.getMinutes()<10?'0':'') + date.getMinutes();
+
+        if (date.getHours() > 12) {
+            result[5] = " pm";
+        } else {
+            result[5] = " am";
+        }
+        var combined_time = "";
+        $.each(result,function(key,value){
+            //combined_time+=value;
+            combined_time += result[key];
+        });
+        var sd = $("#text-area").attr('placeholder');
+        //$('label[for^="'+sd+'"]').fadeIn();
+
+
+        $("<div class='panel panel-default'> <div class='panel-heading'>" + combined_time + "</div> <div class='panel-body'> " + sd + " " + input_text + "</div> </div>").appendTo("#card-body");
+        $("#text-area").val('');
+        $("#text-area").autoHeight()
     });
 
     $("#text-area").on("focus", function (e) {
@@ -56,9 +86,8 @@ $(document).ready(function () {
 
     $("#text-area").on("blur", function (e) {
         $('#submit-button').hide();
-        $('#cancel-button').hide()
+        $('#cancel-button').hide();
         //$('#file-upload').prop("disabled",true);
     });
-
 
 });
