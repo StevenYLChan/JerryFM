@@ -26,20 +26,22 @@
 </head>
 
 <body>
-<img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive">
+<!--
+<img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive" style="padding-bottom: -50px">
 
 <div class="jumbotron" style="text-align: center">
-    <h1>Jerry FM</h1>
+    <h1 style="color: #F44336">Jerry FM</h1>
 </div>
 
 <blockquote style="text-align: center">
-    <p>Wherever you go, I will <span data-toggle=snackbar data-content="Always with Yoona!"
-                                     data-timeout="1000">follow.</span></p>
-    <small>A famous individual from <cite title="Source Title">The City of Skies</cite></small>
+    <p style="color:white">Wherever you go, I will <span data-toggle=snackbar data-content="Always with Yoona!"
+                                                         data-timeout="1000">follow.</span></p>
+    <small style="color:white">A famous individual from <cite title="Source Title">The City of Skies</cite></small>
 </blockquote>
-
-<div class="container" style="padding-bottom: 50px">
-    <div class="row">
+-->
+<div class="container" style="padding-bottom: 50px; padding-top: 350px; position: relative; z-index: 2">
+    <img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive" style="position: absolute; left:292px; top: 10px; z-index: 1">
+    <div class="row" >
         <div class="col-lg-3"></div>
 
         <div class="col-lg-6">
@@ -73,7 +75,7 @@
                         <label for="file-upload" class="custom-file-upload" id="attach-icon" style="text-align:left">
                             <i class="material-icons black">add_a_photo</i>
                         </label>
-                        <input id="file-upload" type="file" disabled/>
+                        <input id="file-upload" type="file" onchange="readURL(this);" accept="image/*" disabled/>
                         <label for="link-upload" id="attach-link" style="text-align: left">
                             <i class="material-icons">link</i>
                         </label>

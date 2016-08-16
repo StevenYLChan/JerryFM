@@ -3,6 +3,7 @@ html{
 }
 body{
     position: relative;
+    background-color: #3E505B;
 }
 
 .image-display {
@@ -19,6 +20,7 @@ body{
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
+    background-color: #3E505B;
 }
 
 .header-padding {
@@ -65,4 +67,20 @@ input[type="file"]{
 
 input[type="button"]{
     display:none;
+}
+
+.panel-matgreen > .panel-heading {
+    background-color: #00C853;
+}
+
+.panel-darkblue > .panel-heading {
+    background-color: #0E79B2;
+}
+
+.panel-lightblue > .panel-heading{
+    background-color: #30BCED ;
+}
+
+blockquote{
+    border: none;
 }

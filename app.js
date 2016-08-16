@@ -1,13 +1,19 @@
 $(document).ready(function () {
+    var nice_text = "It would be nice if";
+    var horrible_text = "It would be horrible if";
+    var option = 1;
+    var chosen = "";
     $.material.init();
     $('[data-toggle="tooltip"]').tooltip();
     $("#option1").click(function () {
-        $("#option-button").html('It would be nice if');
-        $("#text-area").attr("placeholder", "It would be nice if...").val("").focus();
+        $("#option-button").html('It would be nice if &nbsp;<span class="caret"></span>');
+        $("#text-area").attr("placeholder", nice_text + "...").val("").focus();
+        option = 1;
     });
     $("#option2").click(function () {
-        $("#option-button").html('It would be horrible if');
-        $("#text-area").attr("placeholder", "It would be horrible if...").val("").focus();
+        $("#option-button").html('It would be horrible if &nbsp;<span class="caret"></span>');
+        $("#text-area").attr("placeholder", horrible_text + "...").val("").focus();
+        option = 2;
     });
 
     function h(e) {
@@ -68,11 +74,19 @@ $(document).ready(function () {
             //combined_time+=value;
             combined_time += result[key];
         });
-        var sd = $("#text-area").attr('placeholder');
+        //var sd = $("#text-area").attr('placeholder');
+        //var ds = $("#option-button").html();
         //$('label[for^="'+sd+'"]').fadeIn();
+        if(option==1){
+            chosen = nice_text;
+            $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+        }else if (option==2){
+            chosen = horrible_text;
+            $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+        }
 
 
-        $("<div class='panel panel-default'> <div class='panel-heading'>" + combined_time + "</div> <div class='panel-body'> " + sd + " " + input_text + "</div> </div>").appendTo("#card-body");
+
         $("#text-area").val('');
         $("#text-area").autoHeight()
     });
@@ -91,3 +105,18 @@ $(document).ready(function () {
     });
 
 });
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+                .width(200)
+                .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
