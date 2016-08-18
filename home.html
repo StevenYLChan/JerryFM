@@ -26,6 +26,84 @@
 </head>
 
 <body>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <img id="image-file" src="#" alt="your image"
+                         style="height: auto; width: auto; max-width: 300px;max-height: 300px; display: inline-block; margin-top: -50px; margin-right:16px; border:2px solid white; background-color: white; border-radius: 8px; box-sizing: border-box; box-shadow: 0 2px 8px rgba(0,0,0,.4)"/>
+                    <span id="image-file-name" style="display: inline-block"></span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="comment">-->
+                <!--<span style="">ADD A COMMENT</span>-->
+                <!--<span class="label">(optional)</span>-->
+                <!--</div>-->
+                <form>
+                    <div class="form-group">
+                        <label for="comment-text" class="control-label">ADD A COMMENT (optional):</label>
+                        <textarea class="form-control" id="comment-text" style="min-height: 40px;"
+                                  placeholder="It would be nice if..."></textarea>
+                        <!--<textarea class="form-control" id="message-text" style="line-height: 0.5"></textarea>-->
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submit-image-button">submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal-link -->
+<div class="modal fade" id="myModal-link" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel-link">
+
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--<div class="comment">-->
+                <!--<span style="">ADD A COMMENT</span>-->
+                <!--<span class="label">(optional)</span>-->
+                <!--</div>-->
+                <form>
+                    <div class="form-group">
+                        <label for="url-link" class="control-label">LINK:</label>
+                        <input type="text" class="form-control" id="url-link" placeholder="Image or YouTube Link!">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment-text" class="control-label">ADD A COMMENT (optional):</label>
+                        <textarea class="form-control" id="comment-text-link" style="min-height: 40px;"
+                                  placeholder="It would be nice if..."></textarea>
+                        <!--<textarea class="form-control" id="message-text" style="line-height: 0.5"></textarea>-->
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submit-button-link">submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--
 <img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive" style="padding-bottom: -50px">
 
@@ -39,9 +117,10 @@
     <small style="color:white">A famous individual from <cite title="Source Title">The City of Skies</cite></small>
 </blockquote>
 -->
-<div class="container" style="padding-bottom: 50px; padding-top: 350px; position: relative; z-index: 2">
-    <img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive" style="position: absolute; left:292px; top: 10px; z-index: 1">
-    <div class="row" >
+<!--<div class="container" style="padding-bottom: 50px; padding-top: 350px; position: relative; z-index: 2  ">-->
+<div class="container">
+    <img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive">
+    <div class="row">
         <div class="col-lg-3"></div>
 
         <div class="col-lg-6">
@@ -58,9 +137,11 @@
                     </h1>
 
                     <div class="btn-group header-padding">
-                        <button type="button" class="btn dropdown-toggle btn-raised btn-danger" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" id="option-button">It would be nice if &nbsp;<span
-                                class="caret"></span></button>
+                        <button type="button" class="btn dropdown-toggle btn-raised btn-danger"
+                                data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" id="option-button">It would be nice if
+                            &nbsp;<span
+                                    class="caret"></span></button>
                         <ul class="dropdown-menu" style="margin-left: 15px">
                             <li id="option1"><a href="#/">It would be nice if</a></li>
                             <li id="option2"><a href="#/">It would be horrible if</a></li>
@@ -72,14 +153,16 @@
                         <textarea rows="1" class="form-control" placeholder="It would be nice if..."
                                   id="text-area"></textarea>
 
-                        <label for="file-upload" class="custom-file-upload" id="attach-icon" style="text-align:left">
-                            <i class="material-icons black">add_a_photo</i>
+                        <label for="file-upload" class="custom-file-upload" id="attach-icon"
+                               style="text-align:left">
+                            <i class="material-icons red">add_a_photo</i>
                         </label>
-                        <input id="file-upload" type="file" onchange="readURL(this);" accept="image/*" disabled/>
+                        <input id="file-upload" type="file" onchange="readURL(this);" accept="image/*"/>
+                        <!--<input id="file-upload" type="file" accept="image/*" disabled/>-->
                         <label for="link-upload" id="attach-link" style="text-align: left">
-                            <i class="material-icons">link</i>
+                            <i class="material-icons red">link</i>
                         </label>
-                        <input id="link-upload" type="button" disabled/>
+                        <input id="link-upload" type="button"/>
 
                         <!--TO DO
                         //ADD MODAL DIALOG FOR LINK BUTTON TO GIF/YOUTUBE/ETC
