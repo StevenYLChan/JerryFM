@@ -20,6 +20,8 @@
     <!-- the default theme of SnackbarJS, find it in /themes-css -->
     <link href="dist/css/material.css" rel=stylesheet>
 
+    <!-- JQuery Emoticons -->
+    <link href="stylesheets/jquery.cssemoticons.css" media="screen" rel="stylesheet" type="text/css" />
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="styles.css">
 
@@ -104,6 +106,51 @@
     </div>
 </div>
 
+<!-- Modal-help -->
+<div class="modal fade" id="myModal-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">
+                    Help
+                </h4>
+            </div>
+            <div class="modal-body">
+                Input fields support HTML/CSS!<br/>
+                <br/>
+                Examples:
+                <ul>
+                    <li><b>Bold</b>: <ul><li>&emsp; &lt;b&gt;(text)&lt;/b&gt;</li></ul></li>
+                    <li><i>Italics</i>: <ul><li>&emsp; &lt;i&gt;(text)&lt;/i&gt;</li></ul></li>
+                    <li><ins>Underline</ins>: <ul><li>&emsp; &lt;ins&gt;(text)&lt;/ins&gt;</li></ul></li>
+                    <li><del>Cross out</del>: <ul><li>&emsp; &lt;del&gt;(text)&lt;/del&gt;</li></ul></li>
+                    <li><mark>Highlight</mark>: <ul><li>&emsp; &lt;mark&gt;(text)&lt;/mark&gt;</li></ul></li>
+                    <li><sub>Subscript</sub>: <ul><li>&emsp; &lt;sub&gt;(text)&lt;/sub&gt;</li></ul></li>
+                    <li><span style="color:red">Font Color</span>: <ul><li>&emsp; &lt;span style="color:red"&gt;(text)&lt;/span&gt;</li></ul></li>
+                    <li><span style="font-size: x-large">Font Size</span>: <ul><li>&emsp; &lt;span style="font-size: x-large"&gt;(text)&lt;/span&gt;</li></ul></li>
+                </ul>
+
+                <!--<ul>-->
+                    <!--<li><b>Bold</b>: <ul><li>&emsp; &lt;b&gt;(text)&lt;/b&gt;</li></ul></li>-->
+                    <!--<li><i>Italics</i>: &emsp; &lt;i&gt;(text)&lt;/i&gt;</li>-->
+                    <!--<li><ins>Underline</ins>: &emsp; &lt;ins&gt;(text)&lt;/ins&gt;</li>-->
+                    <!--<li><del>Cross out</del>: &emsp; &lt;del&gt;(text)&lt;/del&gt;</li>-->
+                    <!--<li><mark>Highlight</mark>: &emsp; &lt;mark&gt;(text)&lt;/mark&gt;</li>-->
+                    <!--<li><sub>Subscript</sub>: &emsp; &lt;sub&gt;(text)&lt;/sub&gt;</li>-->
+                    <!--<li><span style="color:red">Font Color</span>: &emsp; &lt;span style="color:red"&gt;(text)&lt;/span&gt;</li>-->
+                    <!--<li><span style="font-size: x-large">Font Size</span>: &emsp; &lt;span style="font-size: x-large"&gt;(text)&lt;/span&gt;</li>-->
+                <!--</ul>-->
+
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--
 <img src="assets/uplogo.png" alt="JFM Logo" class="image-display img-responsive" style="padding-bottom: -50px">
 
@@ -133,7 +180,8 @@
 
                     <h1 class="header-padding">Log
                         <a href="#/" style="float: right" class="help-right-padding" data-toggle="tooltip"
-                           data-placement="left" title="Help"><i class="material-icons red">help_outline</i></a>
+                           data-placement="left" title="Help" id="help-icon"><i
+                                class="material-icons red">help_outline</i></a>
                     </h1>
 
                     <div class="btn-group header-padding">
@@ -234,7 +282,7 @@
         crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
         integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
-
+<script src="javascripts/jquery.cssemoticons.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

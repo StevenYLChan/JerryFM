@@ -1,4 +1,23 @@
 $(document).ready(function () {
+    $('.text').emoticonize({
+        //delay: 800,
+        //animate: false,
+        //exclude: 'pre, code, .no-emoticons'
+    });
+    $('#toggle-headline').toggle(
+        function(){
+            $('#large').unemoticonize({
+                //delay: 800,
+                //animate: false
+            })
+        },
+        function(){
+            $('#large').emoticonize({
+                //delay: 800,
+                //animate: false
+            })
+        }
+    );
     var nice_text = "It would be nice if";
     var horrible_text = "It would be horrible if";
     var option = 1;
@@ -81,10 +100,10 @@ $(document).ready(function () {
         //$('label[for^="'+sd+'"]').fadeIn();
         if (option == 1) {
             chosen = nice_text;
-            $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+            $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word' class='text'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
         } else if (option == 2) {
             chosen = horrible_text;
-            $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+            $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
         }
 
         $("#text-area").val('');
@@ -132,10 +151,10 @@ $(document).ready(function () {
         });
         if (option == 1) {
             chosen = nice_text;
-            $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+            $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
         } else if (option == 2) {
             chosen = horrible_text;
-            $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+            $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
         }
 
         $('#myModal').modal('hide');
@@ -175,11 +194,16 @@ $(document).ready(function () {
             while (video_extensions_length--) {
                 if (input_url.indexOf(video_extensions[video_extensions_length]) != -1) {
                     console.log("true");
-                    isVideo = true;
-                    break;
+                    var regexp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+                    var youtube_id = input_url.match(regexp)[2];
+                        console.log("youtube_id: " + youtube_id);
+                        isVideo = true;
+                        break;
+                    }
+
                 }
             }
-        }
+
 
         var date = new Date(Date.now());
         var result = new Array();
@@ -208,31 +232,35 @@ $(document).ready(function () {
         if (isImage == true) {
             if (option == 1) {
                 chosen = nice_text;
-                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><img src='" +input_url + "' alt='your image' style='height: auto; width: auto; max-width: 400px;max-height: 400px; border:2px solid gainsboro; background-color: white; border-radius: 8px; box-sizing: border-box; display: block; margin: 0 auto' /><br/>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><img src='" +input_url + "' alt='your image' style='height: auto; width: auto; max-width: 400px;max-height: 400px; border:2px solid gainsboro; background-color: white; border-radius: 8px; box-sizing: border-box; display: block; margin: 0 auto' /><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             } else if (option == 2) {
                 chosen = horrible_text;
-                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><img src='" +input_url + "' alt='your image' style='height: auto; width: auto; max-width: 400px;max-height: 400px; border:2px solid gainsboro; background-color: white; border-radius: 8px; box-sizing: border-box; display: block; margin: 0 auto' /><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             }
         } else if (isVideo == true) {
             if (option == 1) {
                 chosen = nice_text;
-                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><iframe width='400' height='300' src='https://www.youtube.com/embed/" + youtube_id + "' frameborder='0' allowfullscreen style='display: block; margin: 0 auto; border:2px solid gainsboro; background-color: white; border-radius: 8px; box-sizing: border-box;'></iframe><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             } else if (option == 2) {
                 chosen = horrible_text;
-                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><iframe width='400' height='300' src='https://www.youtube.com/embed/" + youtube_id + "' frameborder='0' allowfullscreen style='display: block; margin: 0 auto; border:2px solid gainsboro; background-color: white; border-radius: 8px; box-sizing: border-box;'></iframe><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             }
         } else {
             if (option == 1) {
                 chosen = nice_text;
-                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-lightblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             } else if (option == 2) {
                 chosen = horrible_text;
-                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'>" + input_text + "</div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
+                $("<div class='panel panel-darkblue'><div class='panel-heading'><div class='panel-title pull-left' style='font-size: 25px'>" + chosen + "</div><div class='panel-title pull-right'><h5><i>" + combined_time + "</i></h5></div><div class='clearfix'></div></div><div class='panel-body'><blockquote style='margin-bottom: 0; word-wrap: break-word'>" + input_text + "</blockquote></div><div class='panel-footer'>Panel footer</div></div>").appendTo("#card-body");
             }
         }
         $('#myModal-link').modal('hide');
-        $("#text-area").val('');
-        $("#text-area").autoHeight()
+        $("#comment-text-link").val('');
+        $("#comment-text-link").autoHeight()
+    });
+
+    $("#help-icon").click(function () {
+        $("#myModal-help").modal('show');
     });
 });
 
